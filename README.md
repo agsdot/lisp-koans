@@ -57,3 +57,9 @@ to Common Lisp.
 
 Note that the unit on threads uses an SBCL specific threading API.  A reader
 macro will remove this unit on Lisp implementations other than SBCL.
+
+Note
+----
+
+Cloned from [Lisp-Koans](https://github.com/google/lisp-koans) in late September 2013. 
+

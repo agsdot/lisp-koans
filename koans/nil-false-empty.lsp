@@ -14,29 +14,29 @@
 
 (define-test test-t-and-nil-are-opposites
     "not is a function which returns the boolean opposite of its argument"
-   (true-or-false? ___ (not nil))
-   (true-or-false? ___ (not t)))
+   (true-or-false? t (not nil))
+   (true-or-false? nil (not t)))
 
 
 (define-test test-nil-and-empty-list-are-the-same-thing
-  (true-or-false? ___ ())
-  (true-or-false? ___ (not ())))
+  (true-or-false? nil ())
+  (true-or-false? t (not ())))
 
 
 (define-test test-lots-of-things-are-true
    " every value, other than nil, is boolean true"
-   (true-or-false? ___ 5)
-   (true-or-false? ___ (not 5))
-   (true-or-false? ___ "A String")
+   (true-or-false? t 5)
+   (true-or-false? nil (not 5))
+   (true-or-false? t "A String")
    "only nil is nil.  Everything else is effectively true."
    "the empty string"
-   (true-or-false? ___ "")
+   (true-or-false? t "")
    "a list containing a nil"
-   (true-or-false? ___ '(nil))
+   (true-or-false? t '(nil))
    "an array with no elements"
-   (true-or-false? ___ (make-array '(0)))
+   (true-or-false? t (make-array '(0)))
    "the number zero"
-   (true-or-false? ___ 0))
+   (true-or-false? t 0))
 
 
 (define-test test-and

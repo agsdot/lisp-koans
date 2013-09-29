@@ -41,15 +41,15 @@
 
 (define-test test-and
    "and can take multiple arguments"
-   (true-or-false? ___ (and t t t t t))
-   (true-or-false? ___ (and t t nil t t))
+   (true-or-false? t (and t t t t t))
+   (true-or-false? nil (and t t nil t t))
    "if no nils, and returns the last value"
-   (assert-equal ___ (and t t t t t 5)))
+   (assert-equal 5 (and t t t t t 5)))
 
 
 (define-test test-or
    "or can also take multiple arguments"
-   (true-or-false? ____  (or nil nil nil t nil))
+   (true-or-false? t  (or nil nil nil t nil))
    "or returns the first non nil value, or nil if there are none."
-   (assert-equal ____ (or nil nil nil))
-   (assert-equal ____ (or 1 2 3 4 5)))
+   (assert-equal nil (or nil nil nil))
+   (assert-equal 1 (or 1 2 3 4 5)))

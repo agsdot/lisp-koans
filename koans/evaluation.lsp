@@ -22,21 +22,21 @@
      with the function name the first element of that list."
 
   "in these examples, the function names are +, -, and *"
-  (assert-equal ___ (+ 2 3))
-  (assert-equal ___ (- 1 3))
-  (assert-equal ___ (* 7 4))
+  (assert-equal 5 (+ 2 3))
+  (assert-equal -2 (- 1 3))
+  (assert-equal 28 (* 7 4))
   "'>' and '=' are the boolean functions (predicates) 'greater-than' and
    'equal to'"
-  (assert-equal ___ (> 100 4))
-  (assert-equal ___ (= 3 3))
+  (assert-equal t (> 100 4))
+  (assert-equal t (= 3 3))
   "'NUMBERP' is a predicate which returns true if the argument is a number"
-  (assert-equal ___ (numberp 5))
-  (assert-equal ___ (numberp "five")))
+  (assert-equal t (numberp 5))
+  (assert-equal nil (numberp "five")))
 
 
 (define-test test-evaluation-order
     "Arguments to functions are evaluated before the function"
-  (assert-equal ___ (* (+ 1 2) (- 13 10))))
+  (assert-equal 9 (* (+ 1 2) (- 13 10))))
 
 
 (define-test test-quoting-behavior

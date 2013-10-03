@@ -29,14 +29,14 @@
     "setf is used to assign values to symbols.  These symbols may refer to
      variables with lexical or dynamic scope."
   (setf my-name "David")
-  (assert-equal my-name ____)
+  (assert-equal my-name "David")
   " In SBCL, if the symbol isn't defined as a variable, via a top-level defvar
   or let statement, the setf call may result in a warning."
   (setf my-clones-name my-name)
-  (assert-equal "David" ____)
+  (assert-equal "David" my-clones-name)
   (setf a 5)
   (setf b 10)
-  (setf c ___)
+  (setf c 50)
   (assert-equal 50 c))
 
 
@@ -46,20 +46,20 @@
      lexical form.  After which, the previous value, if it exists, is visible again."
   (setf a 10)
   (setf b 20)
-  (assert-equal a ___)
-  (assert-equal b ___)
+  (assert-equal a 10)
+  (assert-equal b 20)
   (let ((a 1111)
         (b 2222))
-    (assert-equal a ___)
-    (assert-equal b ___))
-  (assert-equal a ___)
-  (assert-equal b ___))
+    (assert-equal a 1111)
+    (assert-equal b 2222))
+  (assert-equal a 10)
+  (assert-equal b 20))
 
 
 (define-test test-let-default-value
     "let vars have a default value"
     (let ((x))
-      (assert-equal ___ x)))
+      (assert-equal nil x)))
 
 (define-test test-let-bindings-are-parallel
     "When defining the bindings in the let form, later bindings may not depend
@@ -67,7 +67,7 @@
   (setf a 100)
   (let ((a 5)
         (b (* 10 a)))
-    (assert-equal b ___)))
+    (assert-equal b 1000)))
 
 (define-test test-let*-bindings-are-series
     "let* is like let, but successive bindings may use values of previous ones"

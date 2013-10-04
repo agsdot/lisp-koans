@@ -74,8 +74,8 @@
   (setf a 100)
   (let* ((a 5)
          (b (* 10 a)))
-    (assert-equal b ___))
-  (assert-equal a ___))
+    (assert-equal b 50))
+  (assert-equal a 100))
 
 
 (define-test write-your-own-let-statement
@@ -83,17 +83,17 @@
   (setf a 100)
   (setf b 23)
   (setf c 456)
-  (let ((a 0)
-        (b __)
-        (c __))
+  (let ((a 100)
+        (b 200)
+        (c "Jellyfish"))
     (assert-equal a 100)
     (assert-equal b 200)
     (assert-equal c "Jellyfish"))
   (let* ((a 0))
-    (assert-equal a 121)
-    (assert-equal b 200)
-    (assert-equal c (+ a (/ b a)))))
-
+    (assert-equal a 0)
+    (assert-equal b 23)
+    ; (assert-equal c (+ a (/ b a)))))
+    ; (assert-equal c 456)))
 
 (define-test test-cond
     "the cond form is like the c switch statement"

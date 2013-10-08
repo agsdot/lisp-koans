@@ -92,8 +92,8 @@
   (let* ((a 0))
     (assert-equal a 0)
     (assert-equal b 23)
-    ; (assert-equal c (+ a (/ b a)))))
-    ; (assert-equal c 456)))
+    (assert-equal c 456)))
+
 
 (define-test test-cond
     "the cond form is like the c switch statement"
@@ -102,12 +102,14 @@
         (cond ((> a 0) :positive)
               ((< a 0) :negative)
               (t :zero)))
-  (assert-equal ____ c))
+  (assert-equal :positive c))
 
 
 (defun cartoon-dads (input)
   " you should be able to complete this cond statement"
-  (cond ((equal input :this-one-doesnt-happen) :fancy-cat)
+  (cond ((equal input :stewie) :peter)
+        ((equal input :bart) :homer)
+        ((equal input :stan) :randy)
         (t :unknown)))
 
 (define-test test-your-own-cond-statement
